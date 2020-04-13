@@ -1,11 +1,11 @@
-const departamento = require('../db_apis/departamento');
+const db_api = require('../db_apis/rol');
 
 async function get(req, res, next){
     try{
         const context = {}; //objeto generico que contendra las propiedades que son relevantes para el metodo de busqueda de la bd api
         context.id = parseInt(req.params.id, 10);
         
-        const rows = await departamento.listar(context);
+        const rows = await db_api.listar(context);
         if (req.params.id) {
             if (rows.length === 1) {
                 res.status(200).json(rows[0]);

@@ -1,6 +1,0 @@
-{
-    "dbhost" : "db-practicas-intermedias.cclpncoggrn9.us-west-1.rds.amazonaws.com",
-    "dbname" : "db-practicas-intermedias",
-    "dbuser" :"admin",
-    "dbpassword" :"Practicas_2020."
-}
