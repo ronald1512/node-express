@@ -21,7 +21,7 @@ const detalle_venta = require('../controllers/detalle_venta');
 
 router.route('/')
     .get(
-        function(req, res, next) {
+        function (req, res, next) {
             res.render('index', { title: 'Practicas Intermedias 2020' });
         }
     );
@@ -161,6 +161,22 @@ router.route('/detalle_venta/:id_venta')
     .get(detalle_venta.get);
 
 
+
+
+
+
+
+
+
+
+
+router.route('/getRepartidores').get(usuario_rol.getRepartidores);
+
+router.route('/getVendedores').get(usuario_rol.getVendedores);
+
+router.route('/inventario3/:id_bodega').get(inventario.obtenerProductos);
+
+router.route('/bodega2/:id_sede').get(bodega.getBodegas2);
 
 
 module.exports = router;
