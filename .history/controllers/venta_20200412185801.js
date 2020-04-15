@@ -4,27 +4,23 @@ const db_api = require('../db_apis/venta');
 async function post(req, res, next) {
     try {
         let context = {};
-        context.id_cliente = parseInt(req.body.id_cliente,10);
-        context.vendedor = parseInt(req.body.vendedor,10);
-        context.repartidor = parseInt(req.body.repartidor,10);
+        context.id_cliente = req.body.nombre;
+        context.vendedor = req.body.nit;
+        context.fecha_facturacion = req.body.dpi;
+        context.subtotal = req.body.direccion;
+        context.descuento = parseInt(req.body.id_sede,10);
+        context.cargo = parseInt(req.body.id_sede,10);
+        context.estado = parseInt(req.body.id_sede,10);
+        context.repartidor = parseInt(req.body.id_sede,10);
+        context.fecha_entrega = parseInt(req.body.id_sede,10);
 
-        if(req.body.id_cliente && req.body.vendedor && req.body.repartidor){
-            // es A DOMICILIO
+        if(req.body.nombre && req.body.nit && req.body.dpi && req.body.direccion && req.body.id_sede){
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear la venta."});
+                res.status(404).json({mensaje: "No se pudo crear el cliente."});
             }else{
-                //context.id_venta=respuesta.insertId;
-                res.status(201).json(respuesta);
-            }
-        }else if(req.body.id_cliente && req.body.vendedor){
-            // es LOCAL
-            let respuesta = await db_api.create(context);
-            if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear la venta."});
-            }else{
-                //context.id_cliente=respuesta.insertId;
-                res.status(201).json(respuesta);
+                context.id_cliente=respuesta.insertId;
+                res.status(201).json(context);
             }
         }else{
             console.log("Missing parammeters");
@@ -41,12 +37,9 @@ module.exports.post = post;
 async function get(req, res, next){
     try{
         const context = {}; //objeto generico que contendra las propiedades que son relevantes para el metodo de busqueda de la bd api
-        context.id_venta = parseInt(req.params.id_venta, 10);
-        context.vendedor = parseInt(req.params.vendedor, 10);
-        //TODO: -> order by day, week, month w/ salesman
-        //TODO: -> order by day, week, month w/out salesman
+        context.id_cliente = parseInt(req.params.id_cliente, 10);
         const rows = await db_api.listar(context);
-        if (req.params.id_venta) {
+        if (req.params.id_cliente) {
             if (rows.length === 1) {
                 res.status(200).json(rows[0]);
             } else {

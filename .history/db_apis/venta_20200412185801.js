@@ -1,19 +1,14 @@
 const database = require('../services/database');
 
 async function listar(context){
-    let query= "SELECT * FROM venta ";
+    let query  = "SELECT * FROM cliente ";
     const binds = [];
 
-    if(context.id_venta){
-        binds.push(context.id_venta);
-        query += " WHERE id_venta=?";
+    if(context.id_cliente){
+        binds.push(context.id_cliente);
+
+        query += " WHERE id_cliente=?";
     }
-    if(context.vendedor){
-        binds.push(context.vendedor);
-        query += " WHERE vendedor=?";
-    }
-    //TODO: -> order by day, week, month w/ salesman
-    //TODO: -> order by day, week, month w/out salesman
     const result = await database.executeQuery(query, binds);
     return result;
 }
@@ -22,18 +17,14 @@ module.exports.listar = listar;
 
 
 async function create(context){
-    let query;
+    let query= "INSERT INTO cliente (nombre, nit, dpi, direccion, id_sede) VALUES (?,?,?,?,?)";
     let binds = [];
-    binds.push(context.id_cliente);
-    binds.push(context.vendedor);
 
-    if(context.repartidor){
-      query= "call proc_venta_domicilio(?,?,?)";
-      binds.push(context.repartidor);
-    }else{
-      query= "call proc_venta_local(?,?)";
-    }
-
+    binds.push(context.nombre);
+    binds.push(context.nit);
+    binds.push(context.dpi);
+    binds.push(context.direccion);
+    binds.push(context.id_sede);
     const result = await database.executeQuery(query, binds);
     return result;
 }

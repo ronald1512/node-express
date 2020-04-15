@@ -158,7 +158,7 @@ router.route('/detalle_venta')
 
 
 router.route('/detalle_venta/:id_venta')
-    .get(detalle_venta.get);
+    .get(detalle.venta.get);
 
 
 

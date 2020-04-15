@@ -17,7 +17,6 @@ const detalle_producto = require('../controllers/detalle-producto');
 const log_inventario = require('../controllers/log_inventario');
 const cliente = require('../controllers/cliente');
 const venta = require('../controllers/venta');
-const detalle_venta = require('../controllers/detalle_venta');
 
 router.route('/')
     .get(
@@ -151,14 +150,6 @@ router.route('/venta/:id_venta')
 router.route('/venta2/:vendedor')
     .get(venta.get);
 
-
-router.route('/detalle_venta')
-    .get(detalle_venta.get)
-    .post(detalle_venta.post);
-
-
-router.route('/detalle_venta/:id_venta')
-    .get(detalle_venta.get);
 
 
 

@@ -21,7 +21,7 @@ async function post(req, res, next) {
             // es LOCAL
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear la venta."});
+                res.status(404).json({mensaje: "No se pudo crear el cliente."});
             }else{
                 //context.id_cliente=respuesta.insertId;
                 res.status(201).json(respuesta);
@@ -41,12 +41,9 @@ module.exports.post = post;
 async function get(req, res, next){
     try{
         const context = {}; //objeto generico que contendra las propiedades que son relevantes para el metodo de busqueda de la bd api
-        context.id_venta = parseInt(req.params.id_venta, 10);
-        context.vendedor = parseInt(req.params.vendedor, 10);
-        //TODO: -> order by day, week, month w/ salesman
-        //TODO: -> order by day, week, month w/out salesman
+        context.id_cliente = parseInt(req.params.id_cliente, 10);
         const rows = await db_api.listar(context);
-        if (req.params.id_venta) {
+        if (req.params.id_cliente) {
             if (rows.length === 1) {
                 res.status(200).json(rows[0]);
             } else {

@@ -1,19 +1,14 @@
 const database = require('../services/database');
 
 async function listar(context){
-    let query= "SELECT * FROM venta ";
+    let query  = "SELECT * FROM cliente ";
     const binds = [];
 
-    if(context.id_venta){
-        binds.push(context.id_venta);
-        query += " WHERE id_venta=?";
+    if(context.id_cliente){
+        binds.push(context.id_cliente);
+
+        query += " WHERE id_cliente=?";
     }
-    if(context.vendedor){
-        binds.push(context.vendedor);
-        query += " WHERE vendedor=?";
-    }
-    //TODO: -> order by day, week, month w/ salesman
-    //TODO: -> order by day, week, month w/out salesman
     const result = await database.executeQuery(query, binds);
     return result;
 }
@@ -33,7 +28,7 @@ async function create(context){
     }else{
       query= "call proc_venta_local(?,?)";
     }
-
+    
     const result = await database.executeQuery(query, binds);
     return result;
 }

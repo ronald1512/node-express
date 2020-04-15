@@ -16,8 +16,6 @@ const inventario = require('../controllers/inventario');
 const detalle_producto = require('../controllers/detalle-producto');
 const log_inventario = require('../controllers/log_inventario');
 const cliente = require('../controllers/cliente');
-const venta = require('../controllers/venta');
-const detalle_venta = require('../controllers/detalle_venta');
 
 router.route('/')
     .get(
@@ -53,13 +51,9 @@ router.route('/usuario/:id_usuario')
     .put(usuario.put);
 
 
-router.route('/usuario_rol')
+router.route('/usuario_rol/:id_usuario?/:id_rol?')
     .get(usuario_rol.get)
     .post(usuario_rol.post);
-
-
-router.route('/usuario_rol/:id_usuario/:id_rol?')
-    .get(usuario_rol.get)
 
 router.route('/usuario_rol2/:id_rol?') //este es para ver todos los que tienen un rol especifico
     .get(usuario_rol.get2);
@@ -138,29 +132,6 @@ router.route('/cliente')
 router.route('/cliente/:id_cliente')
     .get(cliente.get)
     .put(cliente.put);
-
-
-router.route('/venta')
-    .post(venta.post)
-    .get(venta.get);
-
-router.route('/venta/:id_venta')
-    .get(venta.get)
-    .put(venta.put);
-
-router.route('/venta2/:vendedor')
-    .get(venta.get);
-
-
-router.route('/detalle_venta')
-    .get(detalle_venta.get)
-    .post(detalle_venta.post);
-
-
-router.route('/detalle_venta/:id_venta')
-    .get(detalle_venta.get);
-
-
 
 
 module.exports = router;

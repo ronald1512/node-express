@@ -12,8 +12,8 @@ async function listar(context){
         binds.push(context.vendedor);
         query += " WHERE vendedor=?";
     }
-    //TODO: -> order by day, week, month w/ salesman
-    //TODO: -> order by day, week, month w/out salesman
+    //todo -> order by day, week, month w/ salesman
+    //todo -> order by day, week, month w/out salesman
     const result = await database.executeQuery(query, binds);
     return result;
 }

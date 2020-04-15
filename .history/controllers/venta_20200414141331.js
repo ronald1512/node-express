@@ -21,7 +21,7 @@ async function post(req, res, next) {
             // es LOCAL
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear la venta."});
+                res.status(404).json({mensaje: "No se pudo crear el cliente."});
             }else{
                 //context.id_cliente=respuesta.insertId;
                 res.status(201).json(respuesta);
