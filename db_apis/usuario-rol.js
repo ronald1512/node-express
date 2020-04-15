@@ -16,7 +16,7 @@ async function listar(context){
     }
     else if(context.id_usuario){
         binds.push(context.id_usuario);
-
+        console.log("prueba");
         query += " WHERE id_usuario=?";
     }
     const result = await database.executeQuery(query, binds);
