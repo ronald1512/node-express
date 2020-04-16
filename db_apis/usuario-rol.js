@@ -67,7 +67,7 @@ module.exports.delete = del;
 
 
 async function listarRepartidores() {
-    let query = "SELECT U.id_usuario, (SELECT NOMBRE FROM usuario WHERE ID_USUARIO=U.ID_USUARIO) AS nombre "
+    let query = "SELECT U.id_usuario, (SELECT NOMBRE FROM usuario WHERE ID_USUARIO=U.ID_USUARIO) AS nombre, (SELECT id_sede FROM usuario WHERE ID_USUARIO=U.ID_USUARIO) AS id_sede "
         + "FROM usuario_rol U WHERE U.id_rol=3";
     const binds = [];
 
@@ -82,7 +82,7 @@ module.exports.listarRepartidores = listarRepartidores;
 
 
 async function listarVendedores() {
-    let query = "SELECT U.id_usuario, (SELECT NOMBRE FROM usuario WHERE ID_USUARIO=U.ID_USUARIO) AS nombre "
+    let query = "SELECT U.id_usuario,(SELECT NOMBRE FROM usuario WHERE ID_USUARIO=U.ID_USUARIO) AS nombre,(SELECT id_sede FROM usuario WHERE ID_USUARIO=U.ID_USUARIO) AS id_sede "
         + "FROM usuario_rol U WHERE U.id_rol=1";
     const binds = [];
 

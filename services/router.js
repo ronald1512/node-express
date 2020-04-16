@@ -170,7 +170,7 @@ router.route('/detalle_venta/:id_venta')
 
 
 
-router.route('/getRepartidores').get(usuario_rol.getRepartidores);
+router.route('/getRepartidores/').get(usuario_rol.getRepartidores);
 
 router.route('/getVendedores').get(usuario_rol.getVendedores);
 

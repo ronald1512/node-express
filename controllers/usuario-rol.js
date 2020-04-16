@@ -44,7 +44,6 @@ module.exports.get = get;
 async function get2(req, res, next) {
     try {
         const context = {}; //objeto generico que contendra las propiedades que son relevantes para el metodo de busqueda de la bd api
-        context.id_rol = parseInt(req.params.id_rol, 10);
         const rows = await db_api.listar(context);
         res.status(200).json(rows);
     } catch (error) {
@@ -61,7 +60,9 @@ module.exports.get2 = get2;
 
 async function getRepartidores(req, res, next) {
     try {
-        const context = {}; //objeto generico que contendra las propiedades que son relevantes para el metodo de busqueda de la bd api
+        const context = {};
+            
+        
         const rows = await db_api.listarRepartidores(context);
 
 
