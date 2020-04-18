@@ -68,12 +68,8 @@ module.exports.get = get;
 async function put(req, res, next){
     try{
         const context = {}; //objeto generico que contendra las propiedades que son relevantes para el metodo de busqueda de la bd api
-        context.id_cliente = parseInt(req.params.id_cliente, 10);
-        context.nombre = req.body.nombre;
-        context.nit = req.body.nit;
-        context.dpi = req.body.dpi;
-        context.direccion = req.body.direccion;
-        context.id_sede = parseInt(req.body.id_sede,10);
+        context.id_venta = parseInt(req.params.id_venta, 10);
+        // console.log(context);
         const rows = await db_api.update(context);
         if (rows !== null) {
             res.status(200).json(rows);

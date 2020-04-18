@@ -42,15 +42,10 @@ async function create(context){
 module.exports.create = create;
 
 async function update(context){
-  let query= "UPDATE cliente SET nombre=?, nit=?, dpi=?, direccion=?, id_sede=? WHERE id_cliente=?";
+  let query= "call proc_confirmar_entrega_venta(?)";
   let binds = [];
 
-  binds.push(context.nombre);
-  binds.push(context.nit);
-  binds.push(context.dpi);
-  binds.push(context.direccion);
-  binds.push(context.id_sede);
-  binds.push(context.id_cliente);
+  binds.push(context.id_venta);
   const result = await database.executeQuery(query, binds);
   return result;
 }
