@@ -18,6 +18,8 @@ const log_inventario = require('../controllers/log_inventario');
 const cliente = require('../controllers/cliente');
 const venta = require('../controllers/venta');
 const detalle_venta = require('../controllers/detalle_venta');
+const orden = require('../controllers/orden_transferencia');
+const detalle_orden = require('../controllers/detalle_orden');
 
 router.route('/')
     .get(
@@ -160,6 +162,36 @@ router.route('/detalle_venta')
 
 router.route('/detalle_venta/:id_venta')
     .get(detalle_venta.get);
+
+
+
+
+router.route('/orden')
+    .post(orden.post)
+    .get(orden.get);
+
+router.route('/orden/:id_orden')
+    .get(orden.get)
+    .put(orden.put);
+
+router.route('/orden2/:sede_destino')
+    .get(orden.get);
+
+
+
+
+
+router.route('/detalle_orden/:id_orden/:id_producto?')
+    .get(detalle_orden.get);
+
+router.route('/detalle_orden')
+    .get(detalle_orden.get)
+    .post(detalle_orden.post);
+
+router.route('/detalle_orden2/:id_producto?') //este es para ver todos los que tienen un rol especifico
+    .get(detalle_orden.get2);
+
+
 
 
 
