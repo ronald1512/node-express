@@ -189,10 +189,6 @@ router.route('/orden/:id_orden')
 router.route('/orden2/:sede_destino')
     .get(orden.get);
 
-
-
-
-
 router.route('/detalle_orden/:id_orden/:id_producto?')
     .get(detalle_orden.get);
 
@@ -202,10 +198,6 @@ router.route('/detalle_orden')
 
 router.route('/detalle_orden2/:id_producto?') //este es para ver todos los que tienen un rol especifico
     .get(detalle_orden.get2);
-
-
-
-
 
 
 module.exports = router;

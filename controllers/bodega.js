@@ -12,7 +12,7 @@ async function post(req, res, next) {
         if (req.body.nombre && req.body.direccion && req.body.id_sede && req.body.encargado) {
             let respuesta = await db_api.create(context);
             if (respuesta === undefined) {
-                res.status(404).json({ mensaje: "Un encargado de bodega puede estar a cargo solo de una bodega a la vez." });
+                res.status(409).json({ mensaje: "Un encargado de bodega puede estar a cargo solo de una bodega a la vez." });
             } else {
                 context.id_bodega = respuesta.insertId;
                 res.status(201).json(context);

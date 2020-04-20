@@ -23,7 +23,7 @@ async function post(req, res, next) {
             // es ORDEN DE TRANSFERENCIA INTERNA
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear la orden de transferencia interna."});
+                res.status(409).json({mensaje: "No se pudo crear la orden de transferencia interna."});
             }else{
                 res.status(201).json(respuesta);
             }

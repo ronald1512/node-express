@@ -12,7 +12,7 @@ async function post(req, res, next) {
         if(req.body.alias && req.body.direccion && req.body.id_mun && req.body.encargado){
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear la sede."});
+                res.status(409).json({mensaje: "No se pudo crear la sede."});
             }else{
                 //context.id_sede=respuesta.insertId;
                 res.status(201).json(respuesta);

@@ -1,36 +1,36 @@
 
-# GET /autorizacion/:id_usuario?/:id_permiso?
+# GET /usuario_rol/:id_usuario?/:id_rol?
 
 
-Obtiene todas las autorizaciones registradas.
+Obtiene todas las relaciones entre usuario y rol registradas.
 
 | Codigo | Descripcion |
 |-----------|:-----------:| 
-| 404 | No fue posible obtener el rol solicitado |
+| 404 | No fue posible obtener el registro solicitado |
 | 200 | Registros obtenidos con éxito |
 >Responses
 >>Response content type: application/json
 
-# GET /autorizacion2/:id_permiso
+# GET /usuario_rol2/:id_rol
 
 
-Obtiene todas las autorizaciones registradas.
+Obtiene todos los usuarios con un determinado rol.
 
 | Codigo | Descripcion |
 |-----------|:-----------:| 
-| 404 | No fue posible obtener el rol solicitado |
+| 404 | No fue posible obtener los registros solicitados |
 | 200 | Registros obtenidos con éxito |
 >Responses
 >>Response content type: application/json
 
-# POST /autorizacion
+# POST /usuario_rol
 
 
-Le asigna un nuevo permiso a determinado usuario.
+Le asigna un nuevo rol a determinado usuario.
 ``` js
 {
     "id_usuario": 5,
-    "id_permiso": 3
+    "id_rol": 3
 }
 ```
 

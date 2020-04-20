@@ -12,7 +12,7 @@ async function post(req, res, next) {
         if(req.body.nombre && req.body.descripcion && req.body.precio){
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear el producto."});
+                res.status(409).json({mensaje: "No se pudo crear el producto."});
             }else{
                 context.id_producto=respuesta.insertId;
                 res.status(201).json(context);

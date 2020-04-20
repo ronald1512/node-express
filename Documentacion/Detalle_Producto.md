@@ -1,36 +1,36 @@
 
-# GET /autorizacion/:id_usuario?/:id_permiso?
+# GET /detalle_producto/:id_producto?/:id_categoria?
 
 
-Obtiene todas las autorizaciones registradas.
+Obtiene todas las relaciones entre producto y categoria registradas.
 
 | Codigo | Descripcion |
 |-----------|:-----------:| 
-| 404 | No fue posible obtener el rol solicitado |
+| 404 | No fue posible obtener el registro solicitado |
 | 200 | Registros obtenidos con éxito |
 >Responses
 >>Response content type: application/json
 
-# GET /autorizacion2/:id_permiso
+# GET /detalle_producto2/:id_categoria
 
 
-Obtiene todas las autorizaciones registradas.
+Obtiene todos los productos con una determinada caracteristica.
 
 | Codigo | Descripcion |
 |-----------|:-----------:| 
-| 404 | No fue posible obtener el rol solicitado |
+| 404 | No fue posible obtener los registros solicitados |
 | 200 | Registros obtenidos con éxito |
 >Responses
 >>Response content type: application/json
 
-# POST /autorizacion
+# POST /detalle_producto
 
 
-Le asigna un nuevo permiso a determinado usuario.
+Le asigna una nueva caracteristica a determinado producto.
 ``` js
 {
-    "id_usuario": 5,
-    "id_permiso": 3
+    "id_producto": 5,
+    "id_caracteristica": 3
 }
 ```
 

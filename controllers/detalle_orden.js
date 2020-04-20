@@ -11,7 +11,7 @@ async function post(req, res, next) {
         if(req.body.id_producto && req.body.id_orden && req.body.cantidad){
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "El producto ya fue agregado en la orden."});
+                res.status(409).json({mensaje: "El producto ya fue agregado en la orden."});
             }else{
                 res.status(201).json(respuesta);
             }

@@ -15,38 +15,10 @@ Solucion:
 </br>
 ## Tags 
 
-**[Departamento](./Documentacion/Departamento.md)**
----
+- [End Points](./Documentacion/Endpoints.md)
+- [Modelo Conceptual](./Documentacion/Modelo_conceptual.jpeg)
 
-Entrega información sobre los departamentos de Guatemala.
- - GET
-
-
-**[Municipio](./Documentacion/Municipio.md)**
----
-
-Entrega información sobre los municipios de Guatemala.
- - GET
-
-**[Rol](./Documentacion/Rol.md)**
----
-
-Entrega información sobre los roles dentro del sistema.
- - GET
-
-
-**[Permiso](./Documentacion/Permiso.md)**
----
-
-Entrega información sobre los permisos dentro del sistema.
- - GET
-
- **[Autorización](./Documentacion/Autorizacion.md)**
----
-
-Relaciona usuarios con permisos dentro del sistema.
- - GET
- - POST
- - DELETE
-
-
+## Scripts SQL
+- [Definicion de procedimientos](./Documentacion/SQL_SCRIPTS/definicion_procedimientos.sql)
+- [Modelo fisico](./Documentacion/SQL_SCRIPTS/modelo_fisico.sql)
+- [Valores por defecto](./Documentacion/SQL_SCRIPTS/valores_defecto.sql)

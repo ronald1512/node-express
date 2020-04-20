@@ -18,7 +18,7 @@ async function post(req, res, next) {
         if(req.body.dpi && req.body.nombre && req.body.fecha_nacimiento && req.body.correo && req.body.contraseña){
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "DPI y correo deben ser distintos para cada usuario"});
+                res.status(409).json({mensaje: "DPI y correo deben ser distintos para cada usuario"});
             }else{
                 context.id_usuario=respuesta.insertId;
                 res.status(201).json(context);

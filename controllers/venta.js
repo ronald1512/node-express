@@ -12,7 +12,7 @@ async function post(req, res, next) {
             // es A DOMICILIO
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear la venta."});
+                res.status(409).json({mensaje: "No se pudo crear la venta."});
             }else{
                 //context.id_venta=respuesta.insertId;
                 res.status(201).json(respuesta);
@@ -21,7 +21,7 @@ async function post(req, res, next) {
             // es LOCAL
             let respuesta = await db_api.create(context);
             if(respuesta === undefined){
-                res.status(404).json({mensaje: "No se pudo crear la venta."});
+                res.status(409).json({mensaje: "No se pudo crear la venta."});
             }else{
                 //context.id_cliente=respuesta.insertId;
                 res.status(201).json(respuesta);
