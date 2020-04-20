@@ -41,10 +41,26 @@ async function create(context){
 module.exports.create = create;
 
 async function update(context){
-  let query= "call proc_confirmar_entrega_venta(?)";
+  let query;
   let binds = [];
+  if(context.id_orden && context.entrante && context.saliente && context.individuo){ //orden de transferencia INTERNA
+    binds.push(context.id_orden);
+    binds.push(context.entrante); 
+    binds.push(context.saliente);
+    binds.push(context.individuo);
+    query= "call proc_aceptar_orden_interna (?, ?, ?, ?)";
+  }else if (context.id_orden && context.repartidor_id && context.saliente && context.individuo){ //parametros para orden de transferencia EXTERNA
+    binds.push(context.id_orden);
+    binds.push(context.saliente);
+    binds.push(context.individuo);
+    binds.push(context.repartidor_id);
+    query= "call proc_aceptar_orden_externa (?, ?, ?, ?)";
+  }else{ // se trata de una solicitud de marcar una orden EXTERNA como ENTREGADA.
+    binds.push(context.id_orden);
+    binds.push(context.repartidor_id);
+    query= "call proc_entregar_orden_externa (?, ?)";
+  }
 
-  binds.push(context.id_venta);
   const result = await database.executeQuery(query, binds);
   return result;
 }

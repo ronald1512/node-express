@@ -67,12 +67,25 @@ module.exports.get = get;
 async function put(req, res, next){
     try{
         const context = {}; //objeto generico que contendra las propiedades que son relevantes para el metodo de busqueda de la bd api
-        context.id_venta = parseInt(req.params.id_venta, 10);
-        // console.log(context);
-        const rows = await db_api.update(context);
-        if (rows !== null) {
-            res.status(200).json(rows);
-        } else {
+        // INTERNA
+        context.id_orden = parseInt(req.params.id_orden, 10);
+        context.entrante=parseInt(req.body.entrante, 10);
+        context.saliente=parseInt(req.body.saliente, 10);
+        context.individuo=parseInt(req.body.individuo, 10);
+
+        // EXTERNA
+        context.repartidor_id=parseInt(req.body.repartidor_id,10);
+        if(req.params.id_orden && req.body.entrante && req.body.saliente && req.body.individuo 
+            || req.params.id_orden && req.body.repartidor_id && req.body.saliente && req.body.individuo
+            || req.params.id_orden && req.body.repartidor_id){ // esta expresion es para cuando un repartidor quiere marcar como entregada una orden.
+            const rows = await db_api.update(context);
+            if (rows !== null) {
+                res.status(200).json(rows);
+            } else {
+                res.status(404).end();
+            }
+        }else{
+            console.log("Missing Params");
             res.status(404).end();
         }
     }catch(error){
