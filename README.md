@@ -1,5 +1,5 @@
 # Proyecto de Prácticas Intermedias
-**version: 1.0.0**</br>
+**Version: 1.0.0**</br>
 **Desarrollada por Grupo 5**</br>
 ---
 Una empresa de prestigio tiene el deseo de expandirse y llevar su marca a varios
