@@ -40,10 +40,22 @@ router.route('/rol/:id?')
 router.route('/permiso/:id?')
     .get(permiso.get);
 
-router.route('/autorizacion/:id_usuario?/:id_permiso?') //con este podemos ver si un determinado sujeto tiene determinado permiso, o para listar todos.
-    .get(autorizacion.get);
+
+
+router.route('/autorizacion')
+    .get(autorizacion.get)
+    .post(autorizacion.post);
+
+router.route('/autorizacion/:id_usuario/:id_permiso?') //con este podemos ver si un determinado sujeto tiene determinado permiso, o para listar todos.
+    .get(autorizacion.get)
+    .delete(autorizacion.delete);
+
 router.route('/autorizacion2/:id_permiso?') //este es para ver todos los que tienen un permiso especifico
     .get(autorizacion.get2);
+
+
+
+
 
 
 router.route('/usuario')

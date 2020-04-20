@@ -2,7 +2,7 @@ const database = require('../services/database');
 
 async function listar(context){
     let query  = "SELECT * FROM autorizacion ";
-    const binds = [];
+    let binds = [];
 
     if (context.id_usuario && context.id_permiso) {//verifica si context tiene el atributo id
         binds.push(context.id_usuario);
@@ -26,8 +26,8 @@ async function listar(context){
 
 
 async function create(context){
-    let query= "INSERT INTO autorizacion (id_usuario, id_permiso) VALUES ?";
-    const binds = [];
+    let query= "INSERT INTO autorizacion (id_usuario, id_permiso) VALUES (?,?)";
+    let binds = [];
 
     binds.push(context.id_usuario);
     binds.push(context.id_permiso);
@@ -43,17 +43,19 @@ module.exports.create = create;
 
 
 
-async function del(id) {
-    const binds = {
-      employee_id: id,
-      rowcount: {
-        dir: oracledb.BIND_OUT,
-        type: oracledb.NUMBER
-      }
+async function del(context) {
+    let query  = "DELETE from autorizacion ";
+    let binds = [];
+
+    if (context.id_usuario && context.id_permiso) {//verifica si context tiene el atributo id
+        binds.push(context.id_usuario);
+        binds.push(context.id_permiso);
+
+        query += " WHERE id_usuario=? AND id_permiso=?";
     }
-    const result = await database.simpleExecute(deleteSql, binds);
-  
-    return result.outBinds.rowcount === 1;
+    const result = await database.executeQuery(query, binds);
+    //console.log(result);
+    return result.affectedRows===1;
   }
   
   module.exports.delete = del;

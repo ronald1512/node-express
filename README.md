@@ -1,3 +1,3 @@
-# Proyecto de Prácticas Intermedi
-Este es el backend del proyecto de Practicas Intermedias, USAC.
+## Proyecto de Prácticas Intermedias
 
+Esta es la descripcion de la API:
