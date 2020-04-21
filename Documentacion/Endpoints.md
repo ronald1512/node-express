@@ -1,30 +1,30 @@
-**[Departamento](./Documentacion/Departamento.md)**
+**[Departamento](./Departamento.md)**
 ---
 
 Entrega información sobre los departamentos de Guatemala.
  - GET
 
 
-**[Municipio](./Documentacion/Municipio.md)**
+**[Municipio](./Municipio.md)**
 ---
 
 Entrega información sobre los municipios de Guatemala.
  - GET
 
-**[Rol](./Documentacion/Rol.md)**
+**[Rol](./Rol.md)**
 ---
 
 Entrega información sobre los roles dentro del sistema.
  - GET
 
 
-**[Permiso](./Documentacion/Permiso.md)**
+**[Permiso](./Permiso.md)**
 ---
 
 Entrega información sobre los permisos dentro del sistema.
  - GET
 
- **[Autorización](./Documentacion/Autorizacion.md)**
+ **[Autorización](./Autorizacion.md)**
 ---
 
 Relaciona usuarios con permisos dentro del sistema.
@@ -33,7 +33,7 @@ Relaciona usuarios con permisos dentro del sistema.
  - DELETE
 
 
-  **[Usuario](./Documentacion/Usuario.md)**
+  **[Usuario](./Usuario.md)**
 ---
 
 Gestiona a los usuarios del sistema.
@@ -42,7 +42,7 @@ Gestiona a los usuarios del sistema.
  - PUT
 
 
- **[Usuario_Rol](./Documentacion/Usuario_Rol.md)**
+ **[Usuario_Rol](./Usuario_Rol.md)**
 ---
 
 Gestiona los roles de los usuarios del sistema.
@@ -50,7 +50,7 @@ Gestiona los roles de los usuarios del sistema.
  - POST
 
 
-  **[Sede](./Documentacion/Sede.md)**
+  **[Sede](./Sede.md)**
 ---
 
 Gestiona las sedes del negocio.
@@ -59,7 +59,7 @@ Gestiona las sedes del negocio.
  - PUT
 
 
-  **[Bodega](./Documentacion/Bodega.md)**
+  **[Bodega](./Bodega.md)**
 ---
 
 Gestiona las bodegas del negocio.
@@ -69,7 +69,7 @@ Gestiona las bodegas del negocio.
 
 
 
-**[Producto](./Documentacion/Producto.md)**
+**[Producto](./Producto.md)**
 ---
 
 Gestiona los productos del negocio.
@@ -77,20 +77,20 @@ Gestiona los productos del negocio.
  - POST
  - PUT
 
- **[Categoria](./Documentacion/Categoria.md)**
+ **[Categoria](./Categoria.md)**
 ---
 
 Maneja las categorias asignables a un producto.
  - GET
 
- **[Detalle de un producto](./Documentacion/Detalle_Producto.md)**
+ **[Detalle de un producto](./Detalle_Producto.md)**
 ---
 
 Maneja las categorias de un producto.
  - GET
  - POST
 
- **[Inventario](./Documentacion/Inventario.md)**
+ **[Inventario](./Inventario.md)**
 ---
 
 Administra la cantidad de cierto producto en determinada bodega.
@@ -98,14 +98,14 @@ Administra la cantidad de cierto producto en determinada bodega.
  - POST
  - PUT
 
- **[Log del inventario](./Documentacion/log_inventario.md)**
+ **[Log del inventario](./log_inventario.md)**
 ---
 
 Almacena el historial de cambios en los inventarios. Sus registros se agregan al hacer POST /inventario.
  - GET
 
 
-**[Cliente](./Documentacion/Cliente.md)**
+**[Cliente](./Cliente.md)**
 ---
 
 Gestiona a los clientes, propios de cada sede.
@@ -113,7 +113,7 @@ Gestiona a los clientes, propios de cada sede.
  - POST
  - PUT
 
-**[Venta](./Documentacion/Venta.md)**
+**[Venta](./Venta.md)**
 ---
 
 Gestiona las ventas que se realizan en determinadas bodegas.
@@ -121,14 +121,14 @@ Gestiona las ventas que se realizan en determinadas bodegas.
  - POST
  - PUT
 
-**[Detalle de los productos de la venta](./Documentacion/Detalle_Venta.md)**
+**[Detalle de los productos de la venta](./Detalle_Venta.md)**
 ---
 
 Maneja el detalle de los productos vendidos.
  - GET
  - POST
 
- **[Orden de transferencia](./Documentacion/Orden.md)**
+ **[Orden de transferencia](./Orden.md)**
 ---
 
 Gestiona las ordenes de transferencias internas y externas.
@@ -136,7 +136,7 @@ Gestiona las ordenes de transferencias internas y externas.
  - POST
  - PUT
 
-**[Detalle de los productos a transferir](./Documentacion/Detalle_Orden.md)**
+**[Detalle de los productos a transferir](./Detalle_Orden.md)**
 ---
 
 Maneja el detalle de los productos a transferir.
