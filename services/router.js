@@ -24,7 +24,7 @@ const auth = require('../controllers/auth');
 
 router.route('/')
     .get(
-        function(req, res, next) {
+        function (req, res, next) {
             res.render('index', { title: 'Practicas Intermedias 2020' });
         }
     );
@@ -169,7 +169,7 @@ router.route('/venta')
 router.route('/venta/:id_venta')
     .get(venta.get)
     .put(venta.put); //este solo necesita id_venta en param, nada de body. Solo lo usaremos para marcar como entregadas las ventas a domicilio, lo demás considero que 
-                        //no se debe de poder actualizar
+//no se debe de poder actualizar
 
 router.route('/venta2/:vendedor')
     .get(venta.get);
@@ -206,6 +206,17 @@ router.route('/detalle_orden')
 
 router.route('/detalle_orden2/:id_producto?') //este es para ver todos los que tienen un rol especifico
     .get(detalle_orden.get2);
+
+
+
+router.route('/getRepartidores').get(usuario_rol.getRepartidores);
+
+router.route('/getVendedores').get(usuario_rol.getVendedores);
+
+router.route('/inventario3/:id_bodega').get(inventario.obtenerProductos);
+
+router.route('/bodega2/:id_sede').get(bodega.getBodegas2);
+
 
 
 module.exports = router;

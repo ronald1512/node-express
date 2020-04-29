@@ -119,3 +119,4 @@ async function obtenerProductos(req, res, next) {
 }
 
 module.exports.obtenerProductos = obtenerProductos;
+
