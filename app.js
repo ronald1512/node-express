@@ -59,7 +59,7 @@ app.use(express.json()); app.post('/send', (req, res, next) => {
 
   transporter.sendMail(mail, (err, data) => {
     if(err){
-        res.status(404).json({mensaje: "No se pudo enviar el correo"});
+        res.status(404).json({mensaje: err});
     }else{
         res.status(201).json({mensaje: "success"});
     }
