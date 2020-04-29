@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const nodemailer = require('nodemailer');
+const creds = require('./config/config');
 
 
 var app = express();
@@ -24,6 +26,57 @@ app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(router);
+
+
+
+
+//all following code is for email sending...
+var transport = {
+  host: 'smtp.gmail.com', // e.g. smtp.gmail.com
+  port: 587,
+  secure: false,
+  auth: {
+    user: creds.USER,
+    pass: creds.PASS
+  }
+}
+
+var transporter = nodemailer.createTransport(transport)
+
+app.use(express.json()); app.post('/send', (req, res, next) => {
+  const name = req.body.name
+  const email = req.body.email
+  const message = req.body.messageHtml
+
+
+  var mail = {
+    from: name,
+    to: email,  
+    subject: 'Solucitud de recuperación de contraseña',
+
+    html: message
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if(err){
+        res.status(404).json({mensaje: "No se pudo enviar el correo"});
+    }else{
+        res.status(201).json({mensaje: "success"});
+    }
+  })
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

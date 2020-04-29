@@ -54,8 +54,12 @@ router.route('/autorizacion/:id_usuario/:id_permiso?') //con este podemos ver si
 router.route('/autorizacion2/:id_permiso?') //este es para ver todos los que tienen un permiso especifico
     .get(autorizacion.get2);
 
-router.route('/auth') //este es para ver todos los que tienen un permiso especifico
+router.route('/auth') // verifica las credenciales de un usuario
     .post(auth.post);
+
+
+router.route('/forgot') //recupera la informacion de un usuario en base a su correo
+    .post(auth.post2);
 
 
 
