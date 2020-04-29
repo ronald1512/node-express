@@ -20,6 +20,7 @@ const venta = require('../controllers/venta');
 const detalle_venta = require('../controllers/detalle_venta');
 const orden = require('../controllers/orden_transferencia');
 const detalle_orden = require('../controllers/detalle_orden');
+const auth = require('../controllers/auth');
 
 router.route('/')
     .get(
@@ -52,6 +53,9 @@ router.route('/autorizacion/:id_usuario/:id_permiso?') //con este podemos ver si
 
 router.route('/autorizacion2/:id_permiso?') //este es para ver todos los que tienen un permiso especifico
     .get(autorizacion.get2);
+
+router.route('/auth') //este es para ver todos los que tienen un permiso especifico
+    .post(auth.post);
 
 
 
