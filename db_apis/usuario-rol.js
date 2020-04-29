@@ -12,7 +12,7 @@ async function listar(context) {
     } else if (context.id_rol) {
         binds.push(context.id_rol);
 
-        query += " WHERE id_rol=?";
+        query = "SELECT id_rol, id_usuario, (SELECT nombre FROM usuario WHERE id_usuario = ur.id_usuario) as nombre FROM usuario_rol ur WHERE id_rol=?";
     }
     else if (context.id_usuario) {
         binds.push(context.id_usuario);
@@ -58,13 +58,6 @@ async function del(id) {
 }
 
 module.exports.delete = del;
-
-
-
-
-
-
-
 
 async function listarRepartidores() {
     let query = "SELECT U.id_usuario, (SELECT NOMBRE FROM usuario WHERE ID_USUARIO=U.ID_USUARIO) AS nombre, (SELECT id_sede FROM usuario WHERE ID_USUARIO=U.ID_USUARIO) AS id_sede "
