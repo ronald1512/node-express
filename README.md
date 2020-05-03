@@ -1,6 +1,6 @@
 # Proyecto de Prácticas Intermedias
 **Version: 1.0.0**</br>
-**Desarrollada por Grupo 5**</br>
+**Desarrollada por Grupo 12**</br>
 ---
 Una empresa de prestigio tiene el deseo de expandirse y llevar su marca a varios
 departamentos del país, el problema que se enfrenta esta empresa es que el software que
